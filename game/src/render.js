@@ -171,10 +171,12 @@ export function createRenderer(canvas) {
       overlay('PAUSED', ['Press P or click to carry on.'], PALETTE.muted);
     } else if (screen === SCREEN_LEVELDONE) {
       const level = LEVELS[state.level];
+      const next = LEVELS[state.level + 1];
       overlay('LEVEL CLEAR!', [
         `${level.name} — all 7 differences found.`,
         `Time bonus +${state.levelBonus} points.`,
         '',
+        next ? `Next: ${next.name} — ${next.sub}` : '',
         'Click or press Space for the next picture',
       ], PALETTE.found);
     } else if (screen === SCREEN_OVER) {
